@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Return a Book
+{% endblock %}
+
+{% block content %}
+  <div class="container py-5 text-center">
+    <main>
+      <h2>Return a Book</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            {% for col in dbcols %}
+            <th>{{col}}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <!-- this is a comment the line below prints the db result -->
+        <tbody>
+          {% for result in dbresult %}
+          <tr>
+            {% for entry in result %}
+            <td>{{entry}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </main>
+  </div>
+{% endblock %}

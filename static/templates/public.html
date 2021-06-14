@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+The public interface
+{% endblock %}
+
+
+{% block content %}
+
+<div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4"
+        src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PGc+PHBhdGggZD0ibTI4NiA0NDQgMjIzLTQ4di0zMDBsLTIzMyA0MC0zIDEzM3oiIGZpbGw9IiM5YzY3NTAiLz48cGF0aCBkPSJtMyA0MTEgMjI0IDMzIDE5LTE4MS0xMC0xMjUtMjMzLTMzeiIgZmlsbD0iIzljNjc1MCIvPjxwYXRoIGQ9Im0yMjcgNDQ0aDU5bC0xMC0zMDgtNDAgMnoiIGZpbGw9IiM4NDRmM2UiLz48L2c+PGcgZmlsbD0iI2YzZDU0NCI+PHBhdGggZD0ibTQ4NCA0MDYgMjgtN3YtMzNsLTggMS0zIDIwLTE3IDd6Ii8+PHBhdGggZD0ibTQ4OSA5NiAyMy00djI5bC03LTEtMS0xNi0xMy0yeiIvPjxwYXRoIGQ9Im0wIDEyOXYtMjhsMjYgNC0yIDgtMTUgMS0zIDE0eiIvPjwvZz48Zz48cGF0aCBkPSJtMjU2IDE1OS0yMjYtMTAzLTcgMzM3IDIzOSA0M3oiIGZpbGw9IiNlN2UyZDUiLz48cGF0aCBkPSJtMjU2IDE1OSAyMjEtMTA3IDEyIDMyOC0yMjcgNTZ6IiBmaWxsPSIjZTdlMmQ1Ii8+PHBhdGggZD0ibTUwIDM1NiAzMy0zMjggMTczIDEzMSA2IDI3N3oiIGZpbGw9IiNmNGVmZTMiLz48cGF0aCBkPSJtMTQ3IDAgMTA5IDE1OSA2IDI3Ny0xNzYtMTIxeiIgZmlsbD0iI2ZkZjlmMiIvPjxwYXRoIGQ9Im0yNTYgMTU5IDE2Ny0xMzAgMzUgMzE1LTE5NiA5MnoiIGZpbGw9IiNmNGVmZTMiLz48cGF0aCBkPSJtMjU2IDE1OSAxMDQtMTU5IDYwIDMxMS0xNTggMTI1eiIgZmlsbD0iI2ZkZjlmMiIvPjxwYXRoIGQ9Im0yNTIgMTUxaDhsNiAzNjFoLTIweiIgZmlsbD0iI2Q2ODAzNCIvPjxnIGZpbGw9IiNlN2UyZDUiPjxnPjxwYXRoIGQ9Im0xNTYgNTYgODIgMTAwLTMgODctOTgtOTJ6Ii8+PHBhdGggZD0ibTEzMSAxNzIgMTAyIDg1LTIgMTMtMTAzLTg4eiIvPjxwYXRoIGQ9Im0xMjUgMjAzIDkyIDY5LTIgMTAtOTMtNzB6Ii8+PHBhdGggZD0ibTEyMCAyMjggMTA2IDczLTIgMTItMTA2LTc1eiIvPjxwYXRoIGQ9Im0xMTUgMjU0IDExNSA3NnYxNmwtMTE4LTgyeiIvPjxwYXRoIGQ9Im0xMDcgMjgyIDEwNSA2Ni00IDE0LTEwMy02OXoiLz48L2c+PGc+PHBhdGggZD0ibTI3MSAxNjIgODEtMTE2IDMgMTItODIgMTE4eiIvPjxwYXRoIGQ9Im0yNzQgMTg5IDg2LTExMyAzIDE0LTg3LjY1MyAxMDguNDI2eiIvPjxwYXRoIGQ9Im0yNzkgMjE4IDg0LTkyIDMgMTQtODcgOTJ6Ii8+PHBhdGggZD0ibTI3OSAyNDYgODItODEgMiAxNC04NCA3OXoiLz48cGF0aCBkPSJtMzg2IDMyMCAxNy0xNC03LTE4LTEzIDEweiIvPjwvZz48L2c+PC9nPjxwYXRoIGQ9Im0zNCA0MjAtMzQtNnYtNDJsMTEgMyAyIDIxIDIwIDEzeiIgZmlsbD0iI2YzZDU0NCIvPjwvZz48L3N2Zz4="" alt="" width="
+        72" height="57" />
+    <h2>Welcome to the library</h2>
+    <p class="lead">
+        Search the book you want!<br>
+        Please notice that you should at least remember the title or the author of the book you want.<br>
+        If you could only remember the author like "I remember the author's name is Jackson. Or maybe
+        Jackton. I can't sure. But there must be a 'Jack' in it."<br>
+        Then you should only fill the "Jack" in the input of author below.<br>
+        Tip: Input Nothing to see Everything. If you couldnot remember, browse all the catalog to recognize the one you want.<br>
+    </p>
+</div>
+
+<div class="row g-5 d-flex  text-center justify-content-center" >
+    <div class="col-md-7 col-lg-8" id="searchbook">
+
+        <form class="row g-3" action="/BookResult" method="POST">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Title</label>
+                <input type="text" class="form-control" name="searchTitle" />
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Author</label>
+                <input type="text" class="form-control" name="searchAuthor" />
+            </div>
+
+            <hr class="my-4" />
+
+            <button class="w-100 btn btn-outline-primary btn-lg" type="submit">
+                Search the book
+            </button>
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

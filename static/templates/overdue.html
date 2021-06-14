@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Check Overdue
+{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center">
+    <main>
+      <!-- if there is overdue loan, this section will be displayed-->
+      {% if dbresult %}
+      <h2>Overdue</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            {% for col in dbcols %}
+            <th>{{col}}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <!-- this is a comment the line below prints the db result -->
+        <tbody>
+          {% for result in dbresult %}
+          <tr>
+            {% for entry in result %}
+            <td>{{entry}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+      <!-- if there is no overdue loan today, this section will be displayed-->
+      {% else %}
+      <p class="lead">
+        No Overdue Loan Today!
+      </p>
+      {% endif %}
+
+    </main>
+</div>
+{% endblock %}

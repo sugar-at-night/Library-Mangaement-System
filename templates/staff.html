@@ -1,0 +1,136 @@
+{% extends "layout.html" %}
+
+{% block title %}
+The Staff Interface
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container py-5 text-center">
+    <main>
+        <div class="row g-5 d-flex justify-content-center">
+
+            <!-- search a book -->
+            <div class="col-md-7 col-lg-8" id="searchabook">
+                <h2 class="py-3">Search a book</h2>
+                <p class="lead">
+                    Search by either Title or Author, only input the key words.<br>
+                    Tip: Input Nothing to see Everything.<br>
+                </p>
+                <form class="row g-3" action="/BookResult" method="POST">
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Title</label>
+                        <input type="text" class="form-control" name="searchTitle" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputPassword4" class="form-label">Author</label>
+                        <input type="text" class="form-control" name="searchAuthor" />
+                    </div>
+                    <button class="w-100 btn btn-outline-primary" type="submit">
+                        Search the book
+                    </button>
+                </form>
+            </div>
+
+            <!-- dividing line -->
+            <hr class="my-4" />
+
+            <!-- view borrower's record -->
+            <div class="col-md-7 col-lg-8" id="borrowerrecord">
+                <h2 class="py-3">Borrower's Record</h2>
+                <p class="lead">
+                    Search by either Name or CardNo.<br>
+                    Input need to be precisely accurate.<br>
+                </p>
+                <form class="row g-3" action="/staff/BorrowerRecord" method="POST">
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Borrower's Name</label>
+                        <input type="text" class="form-control" name="borrowerName" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputPassword4" class="form-label">Borrower's CardNo</label>
+                        <input type="number" class="form-control" name="borrowerCardNo" />
+                    </div>
+                    <button class="w-100 btn btn-outline-primary" type="submit">
+                        View Borrower's Record
+                    </button>
+                </form>
+            </div>
+
+            <!-- dividing line -->
+            <hr class="my-4" />
+
+            <!-- issue a book -->
+            <div class="col-md-7 col-lg-8" id="issueabook">
+                <h2 class="py-3">Issue a book</h2>
+                <p class="lead">
+                    Please fill in all the blanks.<br>
+                    Input need to be precisely accurate.<br>
+                </p>
+                <form class="row g-3" action="/staff/IssueABook" method="POST">
+                    <div class="col-md-4">
+                        <label for="inputEmail4" class="form-label">Book ID</label>
+                        <input type="number" class="form-control" name="bookID" required />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputEmail4" class="form-label">Branch ID</label>
+                        <input type="number" class="form-control" name="branchID" required />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Borrower's CardNo</label>
+                        <input type="number" class="form-control" name="borrowerCardNo" required />
+                    </div>
+                    <button class="w-100 btn btn-outline-primary" type="submit">
+                        Issue a book
+                    </button>
+                </form>
+            </div>
+
+            <!-- dividing line -->
+            <hr class="my-4" />
+
+            <!-- return a book -->
+            <div class="col-md-7 col-lg-8" id="returnabook">
+                <h2 class="py-3">Return a book</h2>
+                <p class="lead">
+                    Please fill in all the blanks.<br>
+                    Input need to be precisely accurate.<br>
+                </p>
+                <form class="row g-3" action="/staff/ReturnABook" method="POST">
+                    <div class="col-md-4">
+                        <label for="inputEmail4" class="form-label">Book ID</label>
+                        <input type="number" class="form-control" name="bookID" required />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputEmail4" class="form-label">Branch ID</label>
+                        <input type="number" class="form-control" name="branchID" required />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputPassword4" class="form-label">Borrower's CardNo</label>
+                        <input type="number" class="form-control" name="borrowerCardNo" required />
+                    </div>
+                    <button class="w-100 btn btn-outline-primary" type="submit">
+                        Return a book
+                    </button>
+                </form>
+            </div>
+
+            <!-- dividing line -->
+            <hr class="my-4" />
+
+            <!-- check overdue -->
+            <div class="col-md-7 col-lg-8" id="checkoverdue">
+                <h2 class="py-3">Check Overdue</h2>
+                <p class="lead">
+                    See overdue books & their borrowers.<br>
+                </p>
+                <a class="w-100 btn btn-outline-primary" href="{{ url_for('check_overdue') }}" role="button">
+                    Check Overdue
+                </a>
+            </div>
+
+        </div>
+    </main>
+</div>
+{% endblock %}

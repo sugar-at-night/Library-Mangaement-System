@@ -1,0 +1,7 @@
+#virtual env
+
+__pycache__/ 
+env/ 
+.vscode/ 
+.vscode/ settings.json
+.connect.py

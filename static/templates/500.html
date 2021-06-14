@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Failed
+{% endblock %}
+
+{% block content %}
+<div class="container py-5 text-center">
+  <h2>Failed.</h2>
+  <p class="lead">
+    Might have typo error on earlier input.<br>
+  </p>
+  <input class="btn btn-outline-primary btn-lg" type="button" value="Try Again!" onclick="history.go(-1)" />
+</div>
+{% endblock %}

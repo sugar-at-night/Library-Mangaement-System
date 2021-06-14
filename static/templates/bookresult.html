@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Search Result
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="container py-5 text-center">
+    <!-- search result -->
+    <main>
+      <h2>Search Result</h2>
+      {% if dbresult %}
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            {% for col in dbcols %}
+            <th>{{col}}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <!-- this is a comment the line below prints the db result -->
+        <tbody>
+          {% for result in dbresult %}
+          <tr>
+            {% for entry in result %}
+            <td>{{entry}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p class="lead">
+        No Record Here.<br>
+        Maybe we don't have that book.<br> 
+        Or maybe wrong keywords.<br>
+      </p>
+      <input class="btn btn-outline-primary btn-lg" type="button" value="Try Again!" onclick="history.go(-1)" />
+      {% endif %}
+    </main>
+    
+    <!-- show all the loan records, if this book not on loan, then this section won't be displayed -->
+    <main class="py-5">
+      {% if dbresult_detail %}
+      <h2>See all the on loan records</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            {% for col in dbcols_detail %}
+            <th>{{col}}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <!-- this is a comment the line below prints the db result -->
+        <tbody>
+          {% for result in dbresult_detail %}
+          <tr>
+            {% for entry in result %}
+            <td>{{entry}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %} 
+      {% endif %}
+    </main>
+
+  </div>
+  
+{% endblock %}
